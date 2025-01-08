@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack by Shawn</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#about" id="about">About</a>
+            <a href="#rules" id="rules">Rules</a>
+            <img src="./IMG-assets/blackjack-logo.png" alt="Blackjack logo.png">
+            <a href="#leaderboard" id="leaderboardLink">Leaderboard</a>
+        </nav>
+    </header>
+    <div id="gameContainer">
+        <section id="dealerArea">
+            <h2>Dealer's Hand: </h2>
+            <div id="dealerCards" class="cards"></div>
+            <div id="dealerScore">Total: </div>
+        </section>
+        <div id="textPromptArea">Game status and messages will appear here</div>
+        <section id="playerArea">
+            <h2 id="playerHandHeading">Player's Hand: </h2>
+            <div id="playerCards" class="cards"></div>
+            <div id="playerMoney">Money: $5000</div>
+            <div id="playerScore">Total: </div>
+            <div class="nameInput">
+                <label for="playerName">Enter your name: </label>
+                <input type="text" id="playerName" placeholder="Satoshi Nakamoto">
+                <button id="startGameButton"><span>Start Game</span></button>
+            </div>
+            <div class="bettingControls">
+                <label for="betAmount">Bet Amount: </label>
+                <input type="number" id="betAmount" value="50" min="50" max="5000" placeholder="Enter your bet" required>
+                <button id="betButton">Bet</button>
+            </div>
+            <div class="gameControls">
+                <button id="hitButton">Hit</button>
+                <button id="standButton">Stand</button>
+                <button id="cashOutButton"><span>Cash Out</span></button>
+                <button id="resetButton"><span>Reset</span></button>
+            </div>
+        </section>
+        <section id="leaderboardSection">
+            <h2>Leaderboard 👑</h2>
+            <ol id="leaderboardList"></ol>
+        </section>
+    </div>
+    <script src="JS-file-structure/player.js" type="module"></script>
+    <script src="JS-file-structure/deck.js" type="module"></script>
+    <script src="JS-file-structure/gameLogic.js" type="module"></script>
+    <script src="JS-file-structure/uiController.js" type="module"></script>
+    <script src="JS-file-structure/leaderboard.js" type="module"></script>
+    <script src="JS-file-structure/main.js" type="module"></script>
+</body>
+</html>
