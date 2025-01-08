@@ -186,7 +186,7 @@ function handleBet() {
     betGameControls();
 }
 window.handleBet = handleBet; // step 5 test betting mechanics
-//test
+
 // update UI
 function updateUI() {
     playerMoneyDisplay.textContent = `Money: $${currentPlayer.money}`;
