@@ -50,7 +50,10 @@ function renderLeaderboard(leaderboard = []) {
 
 /*----------- Event Listeners ----------*/
 
-// NA for now
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+    const dropdown = document.querySelector('.nav-dropdown');
+    dropdown.classList.toggle('show');
+});
 
 /*--------------- Exports --------------*/
 
