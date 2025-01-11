@@ -23,10 +23,10 @@ function updateHandUI(hand, handElementId, revealAll = true) {
     hand.forEach((card, index) => {
         const cardImg = document.createElement('img');
         if (!revealAll && index === 0) {
-            // Show face-down card for the dealer's first card
+            // dealer first card face down
             cardImg.src = `./IMG-assets/cards/back_of_card.png`;
         } else {
-            // Show the actual card
+            // dealer second card face up
             cardImg.src = `./IMG-assets/cards/${card.rank.toLowerCase()}_of_${card.suit.toLowerCase()}.png`;
         }
         cardImg.alt = `${card.rank} of ${card.suit}`;
