@@ -7,32 +7,49 @@ body, html {
 }
 
 header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #333;
     color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 24px;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
+    padding: 10px 0;
+    position: relative;
 }
 
 header img {
     height: 120px;
     width: auto;
-    margin-right: 50px;
+    margin-bottom: 10px;
 }
 
-nav a {
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-dropdown {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+}
+
+.nav-dropdown a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    padding: 10px 20px;
-    margin-top: 80px;
+    padding: 10px;
+}
+
+.nav-dropdown a:hover {
+    color: #FFCC00;
+}
+
+.menu-toggle {
+    display: none;
 }
 
 nav a:not(:first-child) {
@@ -71,15 +88,20 @@ nav a:not(:last-child) {
 }
 
 .cards div {
+    flex: 1 0 15%;
+    max-width: 80px;
     width: 50px;
-    height: 70px;
+    height: auto;
+    aspect-ratio: 3 / 4;
     background: #fff;
     border: 1px solid #ccc;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 12px;
     color: black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card {
@@ -285,7 +307,8 @@ input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-o
     border-radius: 5px;
     color: #FFD700;
     width: 80%;
-    max-width: 1024px;
+    max-width: 100%;
+    box-sizing: border-box;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3), 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -346,4 +369,328 @@ input[type='number']::-webkit-inner-spin-button, input[type='number']::-webkit-o
     color: #333;
     font-size: 19px;
     font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    header img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 50px;
+    }
+    nav {
+        position: relative;
+        width: 100%;
+    }
+    .menu-toggle {
+        display: block;
+        font-size: 40px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;
+        right: 10px;
+    }
+    .nav-dropdown {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        right: 10px;
+        background: #444;
+        width: auto;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+    }
+    .nav-dropdown.show {
+        display: flex;
+    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 10px 0;
+    }
+    .cards div {
+        flex: 1 0 18%;
+        max-width: 70px;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        background: #fff;
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        color: black;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    #gameContainer {
+        width: 90%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+    #dealerArea, #playerArea {
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .nameInput input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls input {
+        font-size: 18px;
+        padding: 10px;
+        width: 100%;
+    }
+    .bettingControls button, .gameControls button {
+        font-size: 18px;
+        width: 120px;
+        height: 50px;
+        font-size: 14px;
+        padding: 12px 15px;
+    }
+    .gameControls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    #leaderboardSection {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+        margin: 10px auto;
+        box-sizing: border-box;
+    }
+    #leaderboardList li {
+        font-size: 12px;
+        padding: 8px;
+    }
+    #gameContainer {
+        width: 90%;
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 8px;
+    }
+    #dealerArea, #playerArea {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    .nameInput input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls button, .gameControls button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .gameControls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #leaderboardSection {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    #leaderboardList li {
+        font-size: 12px;
+        padding: 5px;
+    }
+    #gameContainer {
+        width: 90%;
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 8px;
+    }
+    #dealerArea, #playerArea {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    .nameInput input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls button, .gameControls button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .gameControls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #leaderboardSection {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    #leaderboardList li {
+        font-size: 12px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width: 100vw;
+        height: 50px;
+        box-sizing: border-box;
+        position: relative;
+        background: #333;
+        overflow-x: hidden;
+    }
+    header img {
+        height: 40px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .nav-dropdown {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        background: #444;
+        width: auto;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+    }
+    .nav-dropdown a {
+        padding: 8px 12px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .nav-dropdown.show {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+        header img,
+        .nav-dropdown,
+        .menu-toggle {
+            max-width: 100%;
+        }
+    #gameContainer {
+        width: 95%;
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 8px;
+    }
+    #dealerArea,
+    #playerArea {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 14px;
+    }
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin: 10px 0;
+    }
+    .cards div {
+        flex: 1 0 25%;
+        max-width: 50px;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    #textPromptArea {
+        font-size: 14px;
+        padding: 8px;
+        border: 2px solid #7378f9;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .nameInput input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls input {
+        font-size: 14px;
+        padding: 5px;
+        width: 100%;
+    }
+    .bettingControls button,
+    .gameControls button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+    .gameControls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #leaderboardSection {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #leaderboardList li {
+        font-size: 12px;
+        padding: 5px;
+    }
 }
